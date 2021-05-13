@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">AndroidNavigationCompose</string>
+    <string name="normal_navigation_title_screen">Normal Navigation</string>
+    <string name="normal_navigation_typed_value_screen">Typed value Navigation</string>
+</resources>
