@@ -1,2 +1,2 @@
 # android-compose-navigation
-Compose navigation example
+Project with :Compose navigation example
