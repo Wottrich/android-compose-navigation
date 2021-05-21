@@ -1,6 +1,7 @@
 package wottrich.github.io.androidnavigationcompose.navigation
 
 import androidx.navigation.compose.NamedNavArgument
+import java.util.*
 
 /**
  * @author Wottrich
@@ -14,7 +15,13 @@ import androidx.navigation.compose.NamedNavArgument
 interface BaseNavigationModel {
     val route: String
     val arguments: List<NamedNavArgument>
-        get() = emptyList()
     val titleRes: Int?
-        get() = null
+    val destinations: Map<String, BaseNavigationModel>
 }
+
+abstract class BaseNavigationModelImpl(
+    override val route: String,
+    override val arguments: List<NamedNavArgument> = emptyList(),
+    override val titleRes: Int? = null,
+    override val destinations: Map<String, BaseNavigationModel> = emptyMap()
+) : BaseNavigationModel
