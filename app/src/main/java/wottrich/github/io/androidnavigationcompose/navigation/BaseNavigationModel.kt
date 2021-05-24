@@ -14,14 +14,14 @@ import java.util.*
 
 interface BaseNavigationModel {
     val route: String
+    val routeWithArgument: String
     val arguments: List<NamedNavArgument>
     val titleRes: Int?
-    val destinations: Map<String, BaseNavigationModel>
 }
 
 abstract class BaseNavigationModelImpl(
     override val route: String,
+    override val routeWithArgument: String = route,
     override val arguments: List<NamedNavArgument> = emptyList(),
-    override val titleRes: Int? = null,
-    override val destinations: Map<String, BaseNavigationModel> = emptyMap()
+    override val titleRes: Int? = null
 ) : BaseNavigationModel
