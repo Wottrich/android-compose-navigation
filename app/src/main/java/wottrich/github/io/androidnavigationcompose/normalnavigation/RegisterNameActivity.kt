@@ -63,48 +63,21 @@ class RegisterNameActivity : AppCompatActivity() {
             navController = navHostController,
             startDestination = RegisterNameFlow.RegisterNameProperties.route,
             builder = {
-                composable(RegisterNameFlow.RegisterNameProperties.route) {
+                composable(
+                    route = RegisterNameFlow.RegisterNameProperties.route
+                ) {
                     RegisterNameScreen(navHostController = navHostController)
                 }
-                composable(RegisterNameFlow.DetailNameProperties.route) {
-                    DetailNameScreen(navHostController = navHostController)
+                composable(
+                    route = RegisterNameFlow.DetailNameProperties.routeWithArgument,
+                    arguments = RegisterNameFlow.DetailNameProperties.arguments
+                ) {
+                    DetailNameScreen(
+                        navBackStackEntry = it
+                    )
                 }
             }
         )
     }
 
 }
-
-//sealed class NormalNavigationScreens(
-//    override val route: String,
-//    override val arguments: List<NamedNavArgument> = emptyList(),
-//    override val titleRes: Int? = null
-//) : BaseNavigationModel {
-//
-//    object NormalNavigationScreen : NormalNavigationScreens(
-//        route = NormalNavigationRoutes.startDestination,
-//        titleRes = R.string.normal_navigation_title_screen
-//    )
-//
-//    object TypedValueScreen : NormalNavigationScreens(
-//        route = "${NormalNavigationRoutes.typedValueDestination}/{value}",
-//        titleRes = R.string.normal_navigation_title_screen
-//    ) {
-//        fun buildRouteWithArgument(value: String): String {
-//            return "${NormalNavigationRoutes.typedValueDestination}/$value"
-//        }
-//    }
-//
-//    companion object {
-//        val screens = listOf(
-//            NormalNavigationScreen,
-//            TypedValueScreen
-//        )
-//    }
-//
-//}
-//
-//object NormalNavigationRoutes {
-//    const val startDestination = "normal/navigation"
-//    const val typedValueDestination = "$startDestination/detail"
-//}
